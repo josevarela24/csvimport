@@ -1,7 +1,7 @@
 var csv = require('fast-csv');
 var mongoose = require('mongoose');
 var Author = require('./author');
-
+//this upload does not delete what is already inside db, need to implement drop feature
 exports.post = function (req, res) {
 	if (!req.files)
 		return res.status(400).send('No files were uploaded.');
