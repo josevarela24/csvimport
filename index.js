@@ -8,7 +8,7 @@ app.use(fileUpload());
 
 server.listen(80);
 
-mongoose.connect('mongodb://user:pass@ds225078.mlab.com:25078/csvimport');
+mongoose.connect('mongodb://<user>:<pass>@ds225078.mlab.com:25078/csvimport');
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
