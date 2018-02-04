@@ -8,7 +8,12 @@ app.use(fileUpload());
 
 server.listen(80);
 
-mongoose.connect('mongodb://<user>:<pass>@ds225078.mlab.com:25078/csvimport');
+var mongoDB = 'mongodb://user:pass@ds225078.mlab.com:25078/csvimport';
+mongoose.connect(mongoDB, {
+  useMongoClient: true
+});
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname + '/index.html');
